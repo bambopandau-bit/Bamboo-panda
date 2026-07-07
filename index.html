@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bamboo Panda (BPANDA)</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#050505;
+color:#fff;
+overflow-x:hidden;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,.7);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:900;
+color:#7CFC00;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+transition:.3s;
+}
+
+nav a:hover{
+color:#7CFC00;
+}
+
+.hero{
+padding-top:120px;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding-left:8%;
+padding-right:8%;
+}
+
+.hero-text{
+max-width:600px;
+}
+
+.hero h1{
+font-size:70px;
+line-height:1;
+margin-bottom:20px;
+}
+
+.hero h1 span{
+color:#7CFC00;
+text-shadow:0 0 25px #7CFC00;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:30px;
+color:#ccc;
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+background:#7CFC00;
+color:#000;
+font-weight:bold;
+border-radius:50px;
+text-decoration:none;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px #7CFC00;
+}
+
+.hero img{
+width:480px;
+max-width:100%;
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+50%{
+transform:translateY(-15px);
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+🐼 BPANDA
+</div>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#">Tokenomics</a>
+<a href="#">Roadmap</a>
+<a href="#">FAQ</a>
+<a href="#">Whitepaper</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>BAMBOO <span>PANDA</span></h1>
+
+<p>
+Community Driven Meme Token on Solana.
+Strong Together. Built by Community.
+</p>
+
+<a href="#" class="btn">
+BUY BPANDA
+</a>
+
+</div><div class="hero-image">
+
+    <img src="https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?auto=format&fit=crop&w=900&q=80" alt="Bamboo Panda">
+
+    </div>
+
+    </section>
+
+    <section style="padding:70px 8%;text-align:center;background:#0b0b0b;">
+
+    <h2 style="font-size:42px;color:#7CFC00;margin-bottom:25px;">
+    🚀 Launch Countdown
+    </h2>
+
+    <div id="countdown"
+    style="
+    font-size:38px;
+    font-weight:700;
+    color:#fff;
+    text-shadow:0 0 20px #7CFC00;
+    margin-bottom:40px;">
+    30 Days 00:00:00
+    </div>
+
+    <div style="
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;">
+
+    <div style="
+    background:#111;
+    padding:25px;
+    border-radius:15px;
+    border:1px solid #7CFC00;">
+    <h3 style="color:#7CFC00;">Total Supply</h3>
+    <h2>10,000,000,000 BPANDA</h2>
+    </div>
+
+    <div style="
+    background:#111;
+    padding:25px;
+    border-radius:15px;
+    border:1px solid #7CFC00;">
+    <h3 style="color:#7CFC00;">Blockchain</h3>
+    <h2>Solana</h2>
+    </div>
+
+    <div style="
+    background:#111;
+    padding:25px;
+    border-radius:15px;
+    border:1px solid #7CFC00;">
+    <h3 style="color:#7CFC00;">Buy/Sell Tax</h3>
+    <h2>0%</h2>
+    </div>
+
+    <div style="
+    background:#111;
+    padding:25px;
+    border-radius:15px;
+    border:1px solid #7CFC00;">
+    <h3 style="color:#7CFC00;">Liquidity</h3>
+    <h2>Locked 🔒</h2>
+    </div>
+
+    </div>
+
+    </section><section style="padding:80px 8%;background:#050505;text-align:center;">
+
+        <h2 style="font-size:42px;color:#7CFC00;margin-bottom:40px;">
+        🥧 Tokenomics
+        </h2>
+
+        <div style="max-width:700px;margin:auto;">
+
+        <canvas id="tokenChart"></canvas>
+
+        </div>
+
+        <div style="margin-top:50px;">
+
+        <h2 style="color:#7CFC00;">👥 Live Holders</h2>
+
+        <h1 id="holders"
+        style="font-size:60px;margin-top:15px;">
+        0
+        </h1>
+
+        </div>
+
+        </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script>
+
+        const ctx=document.getElementById('tokenChart');
+
+        new Chart(ctx,{
+
+        type:'pie',
+
+        data:{
+
+        labels:[
+        'Liquidity 40%',
+        'Marketing 20%',
+        'Community 20%',
+        'Team 10%',
+        'Airdrop 10%'
+        ],
+
+        datasets:[{
+
+        data:[40,20,20,10,10]
+
+        }]
+
+        }
+
+        });
+
+        let holder=0;
+
+        setInterval(()=>{
+
+        if(holder<12500){
+
+        holder+=25;
+
+        document.getElementById("holders").innerHTML=holder;
+        }
+        },20);
+<section style="padding:80px 8%;background:#0b0b0b;">
+
+<h2 style="text-align:center;color:#7CFC00;font-size:42px;">
+🗺️ Roadmap
+</h2>
+
+<ul style="max-width:700px;margin:40px auto;font-size:20px;line-height:2;">
+<li>✅ Phase 1 - Website Launch</li>
+<li>✅ Phase 2 - Community Growth</li>
+<li>🚀 Phase 3 - Token Launch</li>
+<li>📈 Phase 4 - CoinGecko & CMC Listing</li>
+<li>🌍 Phase 5 - Global Marketing</li>
+</ul>
+
+</section>
+
+<section style="padding:80px 8%;text-align:center;">
+
+<h2 style="color:#7CFC00;">📄 Whitepaper</h2>
+
+<p style="margin:20px auto;max-width:700px;">
+BPANDA adalah meme token berbasis Solana yang berfokus pada komunitas,
+transparansi, dan pertumbuhan jangka panjang.
+</p>
+
+<h2 style="margin-top:50px;color:#7CFC00;">❓ FAQ</h2>
+
+<p><b>Q:</b> Kapan Launch?</p>
+<p>A: 30 Hari Countdown.</p>
+
+<p style="margin-top:20px;"><b>Q:</b> Supply?</p>
+<p>A: 10.000.000.000 BPANDA</p>
+
+</section>
+
+<footer style="padding:40px;background:#000;text-align:center;">
+
+<h3>🌐 Follow Us</h3>
+
+<p>X | Telegram | Discord</p>
+
+<br>
+
+<p>© 2026 Bamboo Panda</p>
+
+</footer>
+
+</body>
+</html>
+        </script>
